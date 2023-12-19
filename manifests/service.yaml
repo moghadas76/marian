@@ -6,10 +6,9 @@ metadata:
   name: "nextjs-app"
 spec:
   ports:
-    - port: 80
-      protocol: TCP
+    - port: 3000
       targetPort: 3000
   selector:
     app: "nextjs-app"
   sessionAffinity: None
-  type: NodePort
+  type: ClusterIP

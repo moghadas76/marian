@@ -6,7 +6,7 @@ metadata:
   name: "nextjs-app"
   namespace: default
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: "nextjs-app"
@@ -18,12 +18,12 @@ spec:
         app: "nextjs-app"
     spec:
       containers:
-        - image: asia.gcr.io/lyrical-catfish-287707/nextjs-app:7258086604fea5ea316cf4f606bc16064cd7c398
+        - image: moghadas76/front:latest
           imagePullPolicy: IfNotPresent
           livenessProbe:
             failureThreshold: 3
             httpGet:
-              path: /manifest.json
+              path: /
               port: 3000
               scheme: HTTP
             periodSeconds: 10
@@ -33,7 +33,7 @@ spec:
           readinessProbe:
             failureThreshold: 3
             httpGet:
-              path: /manifest.json
+              path: /
               port: 3000
               scheme: HTTP
             periodSeconds: 10
